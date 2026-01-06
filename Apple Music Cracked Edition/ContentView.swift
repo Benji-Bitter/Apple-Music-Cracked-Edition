@@ -1,24 +1,48 @@
 //
 //  ContentView.swift
-//  Apple Music Cracked Edition
+//  Apple Music
 //
-//  Created by apmckelvey on 1/6/26.
+//  Created by apmckelvey on 1/5/26.
 //
 
 import SwiftUI
+import WebKit
 
 struct ContentView: View {
+    @StateObject private var viewModel = MusicViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        VStack(spacing: 0) {
+            ZStack {
+                WebViewRepresentable(webView: viewModel.webView)
+                    .ignoresSafeArea(edges: .bottom)
+
+                if viewModel.isLoading {
+                    ProgressView()
+                        .tint(.gray)
+                }
+            }
         }
-        .padding()
+        .onAppear {
+            viewModel.loadMusic()
+        }
+        .keyboardShortcuts {
+            viewModel.togglePlayPause()
+        }
     }
 }
 
-#Preview {
-    ContentView()
+extension View {
+    func keyboardShortcuts(onSpace: @escaping () -> Void) -> some View {
+        self.onKeyPress(.space) {
+            onSpace()
+            return .handled
+        }
+    }
+}
+
+struct WebViewRepresentable: NSViewRepresentable {
+    let webView: WKWebView
+    func makeNSView(context: Context) -> WKWebView { webView }
+    func updateNSView(_ nsView: WKWebView, context: Context) {}
 }
