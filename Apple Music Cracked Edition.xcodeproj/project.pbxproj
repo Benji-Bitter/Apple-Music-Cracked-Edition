@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		151041222F0DCE9A0091BBFC /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 151041212F0DCE9A0091BBFC /* icon.png */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		151041132F0DC9EA0091BBFC /* Apple Music Cracked Edition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Apple Music Cracked Edition.app"; path = "/Users/apmckelvey/Desktop/Coding Files/Apple Music Cracked Edition/build/Debug/Apple Music Cracked Edition.app"; sourceTree = "<absolute>"; };
+		151041212F0DCE9A0091BBFC /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -33,6 +38,7 @@
 			isa = PBXGroup;
 			children = (
 				15914DA02F0D746F00587D1D /* Apple Music Cracked Edition */,
+				151041212F0DCE9A0091BBFC /* icon.png */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +106,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				151041222F0DCE9A0091BBFC /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
