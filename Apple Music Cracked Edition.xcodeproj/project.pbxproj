@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		151041072F0DC89B0091BBFC /* Apple Music Cracked Edition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Apple Music Cracked Edition.app"; path = "/Users/apmckelvey/Desktop/Coding Files/Apple Music Cracked Edition/build/Debug/Apple Music Cracked Edition.app"; sourceTree = "<absolute>"; };
+		151041132F0DC9EA0091BBFC /* Apple Music Cracked Edition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Apple Music Cracked Edition.app"; path = "/Users/apmckelvey/Desktop/Coding Files/Apple Music Cracked Edition/build/Debug/Apple Music Cracked Edition.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -58,7 +58,7 @@
 			packageProductDependencies = (
 			);
 			productName = "Apple Music Cracked Edition";
-			productReference = 151041072F0DC89B0091BBFC /* Apple Music Cracked Edition.app */;
+			productReference = 151041132F0DC9EA0091BBFC /* Apple Music Cracked Edition.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
