@@ -83,7 +83,7 @@ The official Apple Music website can be found at [music.apple.com](https://music
 
 ## Credits
 
-* **Icon Design**: [FuzzyIdeas](https://github.com/FuzzyIdeas/MusicDecoy) - Thank you for the visual assets!
+* **Icon Design**: [FuzzyIdeas/MusicDecoy](https://github.com/FuzzyIdeas/MusicDecoy) - Thank you for the visual assets!
 * **Original Inspiration**: The desire for a lighter music player.
 
 ## License
