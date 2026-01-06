@@ -2,3 +2,6 @@
 <p align="center">
   <img height="50%" width="50%" src="icon.png">
 </p>
+
+# Credits
+Icon: [https://github.com/FuzzyIdeas/MusicDecoy](https://github.com/FuzzyIdeas/MusicDecoy)
