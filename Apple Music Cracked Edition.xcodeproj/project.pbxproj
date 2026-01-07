@@ -16,7 +16,7 @@
 		151041212F0DCE9A0091BBFC /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		151041232F0DD0580091BBFC /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		151041242F0DD0580091BBFC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		1551E0DF2F0EB08F00BDCB6B /* Apple Music Cracked Edition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Apple Music Cracked Edition.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1551E0F62F0EBDC700BDCB6B /* Apple Music Cracked Edition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Apple Music Cracked Edition.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -45,7 +45,7 @@
 				151041212F0DCE9A0091BBFC /* icon.png */,
 				151041232F0DD0580091BBFC /* LICENSE */,
 				151041242F0DD0580091BBFC /* README.md */,
-				1551E0DF2F0EB08F00BDCB6B /* Apple Music Cracked Edition.app */,
+				1551E0F62F0EBDC700BDCB6B /* Apple Music Cracked Edition.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,7 +71,7 @@
 			packageProductDependencies = (
 			);
 			productName = "Apple Music Cracked Edition";
-			productReference = 1551E0DF2F0EB08F00BDCB6B /* Apple Music Cracked Edition.app */;
+			productReference = 1551E0F62F0EBDC700BDCB6B /* Apple Music Cracked Edition.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -273,6 +273,7 @@
 				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -315,6 +316,7 @@
 				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
