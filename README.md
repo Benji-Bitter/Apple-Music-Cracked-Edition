@@ -45,13 +45,13 @@ This app works entirely online, giving you access to the full Apple Music librar
 * **Modern Support**: Uses a custom User Agent to ensure the full desktop interface loads correctly on Apple Silicon and Intel Macs.
 
 ### Built With
-* [Swift](https://developer.apple.com/swift/)
+* [Swift](https://swift.org)
 * [WebKit](https://developer.apple.com/documentation/webkit)
-* [SwiftUI](https://developer.apple.com/xcode/swiftui/)
+* [SwiftUI](https://developer.apple.com/swiftui/)
 
 ## Getting Started
 
-To get a local copy up and running, follow these simple steps.
+To get up and running, download a [release]() or follow these simple steps to get a local copy.
 
 ### Installation
 
@@ -79,7 +79,7 @@ Once the app is running:
 
 **This project is NOT affiliated, associated, authorized, endorsed by, or in any way officially connected with Apple Inc., or any of its subsidiaries or its affiliates.**
 
-The official Apple Music website can be found at [music.apple.com](https://music.apple.com). The name "Apple Music" as well as related names, marks, emblems, and images are registered trademarks of their respective owners. This application is an unofficial web wrapper and is provided for educational and personal use only.
+The official Apple Music website can be found at [music.apple.com](https://music.apple.com). The name "Apple Music" as well as related names, marks, emblems, and images are registered trademarks of their respective owners. This application is an **unofficial** web wrapper and is provided for *educational* and *personal* use only.
 
 ## Credits
 
