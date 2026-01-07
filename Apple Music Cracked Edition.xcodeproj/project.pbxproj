@@ -13,13 +13,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		151041132F0DC9EA0091BBFC /* Apple Music Cracked Edition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Apple Music Cracked Edition.app"; path = "/Users/apmckelvey/Desktop/Coding Files/Apple Music Cracked Edition/build/Debug/Apple Music Cracked Edition.app"; sourceTree = "<absolute>"; };
 		151041212F0DCE9A0091BBFC /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		151041232F0DD0580091BBFC /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		151041242F0DD0580091BBFC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		158BB3322F0DE3A900C291A4 /* Apple Music Cracked Edition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Apple Music Cracked Edition.app"; path = "/Users/apmckelvey/Desktop/Coding Files/Apple-Music-Cracked-Edition/build/Debug/Apple Music Cracked Edition.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		158BB3402F0DE3BF00C291A4 /* .github */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = .github;
+			sourceTree = "<group>";
+		};
 		15914DA02F0D746F00587D1D /* Apple Music Cracked Edition */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Apple Music Cracked Edition";
@@ -45,6 +50,7 @@
 				151041212F0DCE9A0091BBFC /* icon.png */,
 				151041232F0DD0580091BBFC /* LICENSE */,
 				151041242F0DD0580091BBFC /* README.md */,
+				158BB3402F0DE3BF00C291A4 /* .github */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,13 +70,14 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				158BB3402F0DE3BF00C291A4 /* .github */,
 				15914DA02F0D746F00587D1D /* Apple Music Cracked Edition */,
 			);
 			name = "Apple Music Cracked Edition";
 			packageProductDependencies = (
 			);
 			productName = "Apple Music Cracked Edition";
-			productReference = 151041132F0DC9EA0091BBFC /* Apple Music Cracked Edition.app */;
+			productReference = 158BB3322F0DE3A900C291A4 /* Apple Music Cracked Edition.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */

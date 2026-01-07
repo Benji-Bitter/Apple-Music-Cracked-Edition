@@ -1,5 +1,4 @@
-name: Xcode - Build and Analyze
-
+name: Xcode - Build and Archive
 on:
   push:
     branches: [ "main" ]
@@ -8,23 +7,83 @@ on:
 
 jobs:
   build:
-    name: Build and analyse default scheme using xcodebuild command
+    name: Build, Archive, Export, and Upload App Artifact
     runs-on: macos-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Set Default Scheme
+        id: set_scheme
         run: |
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
           default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
-          echo $default | cat >default
-          echo Using default scheme: $default
-      - name: Build
-        env:
-          scheme: ${{ 'default' }}
+          echo "Using default scheme: $default"
+          echo "scheme=$default" >> $GITHUB_OUTPUT
+
+      - name: Determine File Type
+        id: set_file_type
         run: |
-          if [ $scheme = default ]; then scheme=$(cat default); fi
-          if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
-          file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
-          xcodebuild clean build analyze -scheme "$scheme" -"$filetype_parameter" "$file_to_build" | xcpretty && exit ${PIPESTATUS[0]}
+          if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then
+            echo "filetype_parameter=workspace" >> $GITHUB_OUTPUT
+            echo "file_to_build=`ls -A | grep -i \\.xcworkspace\$`" >> $GITHUB_OUTPUT
+          else
+            echo "filetype_parameter=project" >> $GITHUB_OUTPUT
+            echo "file_to_build=`ls -A | grep -i \\.xcodeproj\$`" >> $GITHUB_OUTPUT
+          fi
+          # Trim whitespace from the file path
+          echo "file_to_build=`echo ${{steps.set_file_type.outputs.file_to_build}} | awk '{\$1=\$1;print}'`" >> $GITHUB_OUTPUT
+
+      - name: Clean, Build, and Analyze
+        env:
+          SCHEME: ${{ steps.set_scheme.outputs.scheme }}
+          FILE_TYPE: ${{ steps.set_file_type.outputs.filetype_parameter }}
+          FILE_PATH: ${{ steps.set_file_type.outputs.file_to_build }}
+        run: |
+          xcodebuild clean build analyze \
+            -scheme "$SCHEME" \
+            -"$FILE_TYPE" "$FILE_PATH" \
+            | xcpretty && exit ${PIPESTATUS[0]}
+
+      - name: Archive and Export App
+        env:
+          SCHEME: ${{ steps.set_scheme.outputs.scheme }}
+          FILE_TYPE: ${{ steps.set_file_type.outputs.filetype_parameter }}
+          FILE_PATH: ${{ steps.set_file_type.outputs.file_to_build }}
+          ARCHIVE_PATH: './build/${{ steps.set_scheme.outputs.scheme }}.xcarchive'
+          EXPORT_PATH: './build/exported_app'
+        run: |
+          # Create archive
+          xcodebuild archive \
+            -scheme "$SCHEME" \
+            -"$FILE_TYPE" "$FILE_PATH" \
+            -archivePath "$ARCHIVE_PATH" \
+            SKIP_INSTALL=NO
+          
+          # Create an ExportOptions.plist file for Ad-Hoc distribution (adjust to development/appstore as needed)
+          cat << EOF > ExportOptions.plist
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "www.apple.com">
+          <plist version="1.0">
+          <dict>
+            <key>method</key>
+            <string>ad-hoc</string>
+            <key>uploadBitcode</key>
+            <false/>
+            <key>compileBitcode</key>
+            <false/>
+          </dict>
+          </plist>
+          EOF
+
+          # Export the archive to a .app file within a directory
+          xcodebuild -exportArchive \
+            -archivePath "$ARCHIVE_PATH" \
+            -exportOptionsPlist "ExportOptions.plist" \
+            -exportPath "$EXPORT_PATH"
+
+      - name: Upload App as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.set_scheme.outputs.scheme }}-app-build
+          path: ./build/exported_app/*.app
