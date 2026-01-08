@@ -26,18 +26,6 @@ struct ContentView: View {
         .onAppear {
             viewModel.loadMusic()
         }
-        .keyboardShortcuts {
-            viewModel.togglePlayPause()
-        }
-    }
-}
-
-extension View {
-    func keyboardShortcuts(onSpace: @escaping () -> Void) -> some View {
-        self.onKeyPress(.space) {
-            onSpace()
-            return .handled
-        }
     }
 }
 

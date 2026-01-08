@@ -21,6 +21,22 @@ class MusicViewModel: NSObject, ObservableObject, WKNavigationDelegate, WKUIDele
         configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
         configuration.websiteDataStore = WKWebsiteDataStore.default()
         
+        // Prevent spacebar from toggling playback inside the Apple Music web app
+        let blockSpacebarScriptSource = """
+        (function(){
+            function handler(e){
+                if (e.code === 'Space' || e.key === ' ' || e.keyCode === 32) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    return false;
+                }
+            }
+            window.addEventListener('keydown', handler, { capture: true });
+        })();
+        """
+        let blockSpacebarScript = WKUserScript(source: blockSpacebarScriptSource, injectionTime: .atDocumentStart, forMainFrameOnly: false)
+        configuration.userContentController.addUserScript(blockSpacebarScript)
+        
         self.webView = WKWebView(frame: .zero, configuration: configuration)
         
         super.init()
