@@ -24,12 +24,30 @@ class MusicViewModel: NSObject, ObservableObject, WKNavigationDelegate, WKUIDele
         // Prevent spacebar from toggling playback inside the Apple Music web app
         let blockSpacebarScriptSource = """
         (function(){
-            function handler(e){
-                if (e.code === 'Space' || e.key === ' ' || e.keyCode === 32) {
-                    e.stopPropagation();
-                    e.preventDefault();
-                    return false;
+            function isEditable(el){
+                if (!el) return false;
+                const tag = el.tagName ? el.tagName.toLowerCase() : "";
+                const editable = el.isContentEditable;
+                const inputTypesAllowingSpace = new Set([
+                    "text","search","url","tel","password","email","number","date","datetime-local","month","time","week"]);
+                if (tag === "textarea") return true;
+                if (tag === "input") {
+                    const type = (el.getAttribute("type") || "text").toLowerCase();
+                    return inputTypesAllowingSpace.has(type);
                 }
+                return !!editable;
+            }
+            function handler(e){
+                // Only consider plain spacebar (no modifiers)
+                if (!(e.code === 'Space' || e.key === ' ' || e.keyCode === 32)) return;
+                if (e.ctrlKey || e.metaKey || e.altKey) return;
+                const active = document.activeElement;
+                // Allow spacebar inside editable fields
+                if (isEditable(active)) return;
+                // Otherwise, block to prevent play/pause toggling
+                e.stopPropagation();
+                e.preventDefault();
+                return false;
             }
             window.addEventListener('keydown', handler, { capture: true });
         })();
@@ -75,3 +93,4 @@ class MusicViewModel: NSObject, ObservableObject, WKNavigationDelegate, WKUIDele
         DispatchQueue.main.async { self.isLoading = false }
     }
 }
+
