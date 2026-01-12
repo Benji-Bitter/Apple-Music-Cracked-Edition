@@ -1,31 +1,27 @@
 //
 //  ContentView.swift
-//  Apple Music
+//  Apple Music Cracked Edition
 //
-//  Created by apmckelvey on 1/5/26.
+//  Created by Alexander McKelvey on 1/5/26.
 //
 
 import SwiftUI
 import WebKit
 
 struct ContentView: View {
-    @StateObject private var viewModel = MusicViewModel()
+    @ObservedObject var viewModel: MusicViewModel
     
     var body: some View {
         VStack(spacing: 0) {
-            ZStack {
-                WebViewRepresentable(webView: viewModel.webView)
-                    .ignoresSafeArea(edges: .bottom)
-
-                if viewModel.isLoading {
-                    ProgressView()
-                        .tint(.gray)
-                }
-            }
+            WebViewRepresentable(webView: viewModel.webView)
         }
         .onAppear {
-            viewModel.loadMusic()
+            // FIX: Access the underlying object directly
+            if viewModel.webView.url == nil {
+                viewModel.loadMusic()
+            }
         }
+        .frame(minWidth: 800, minHeight: 600)
     }
 }
 

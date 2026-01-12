@@ -2,95 +2,89 @@
 //  MusicViewModel.swift
 //  Apple Music Cracked Edition
 //
-//  Created by apmckelvey on 1/6/26.
+//  Created by Alexander McKelvey on 1/5/26.
 //
 
 import Foundation
 import WebKit
 import Combine
+import MediaPlayer
 
 class MusicViewModel: NSObject, ObservableObject, WKNavigationDelegate, WKUIDelegate {
     let webView: WKWebView
-    @Published var isLoading = false
+    private var titleObservation: NSKeyValueObservation?
     
     override init() {
         let configuration = WKWebViewConfiguration()
-        
-        // Standard preferences for a stable web experience
-        configuration.preferences.isElementFullscreenEnabled = true
-        configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
-        configuration.websiteDataStore = WKWebsiteDataStore.default()
-        
-        // Prevent spacebar from toggling playback inside the Apple Music web app
-        let blockSpacebarScriptSource = """
-        (function(){
-            function isEditable(el){
-                if (!el) return false;
-                const tag = el.tagName ? el.tagName.toLowerCase() : "";
-                const editable = el.isContentEditable;
-                const inputTypesAllowingSpace = new Set([
-                    "text","search","url","tel","password","email","number","date","datetime-local","month","time","week"]);
-                if (tag === "textarea") return true;
-                if (tag === "input") {
-                    const type = (el.getAttribute("type") || "text").toLowerCase();
-                    return inputTypesAllowingSpace.has(type);
-                }
-                return !!editable;
-            }
-            function handler(e){
-                // Only consider plain spacebar (no modifiers)
-                if (!(e.code === 'Space' || e.key === ' ' || e.keyCode === 32)) return;
-                if (e.ctrlKey || e.metaKey || e.altKey) return;
-                const active = document.activeElement;
-                // Allow spacebar inside editable fields
-                if (isEditable(active)) return;
-                // Otherwise, block to prevent play/pause toggling
-                e.stopPropagation();
-                e.preventDefault();
-                return false;
-            }
-            window.addEventListener('keydown', handler, { capture: true });
-        })();
-        """
-        let blockSpacebarScript = WKUserScript(source: blockSpacebarScriptSource, injectionTime: .atDocumentStart, forMainFrameOnly: false)
-        configuration.userContentController.addUserScript(blockSpacebarScript)
+        // Essential for Control Center recognition
+        configuration.allowsAirPlayForMediaPlayback = true
+        configuration.mediaTypesRequiringUserActionForPlayback = []
         
         self.webView = WKWebView(frame: .zero, configuration: configuration)
-        
         super.init()
         
-        // Modern User Agent to ensure Apple Music loads the high-quality interface
-        webView.customUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15"
-        
         webView.navigationDelegate = self
-        webView.uiDelegate = self
-        webView.allowsBackForwardNavigationGestures = true
+        setupRemoteCommandCenter()
+        setupTitleObserver()
     }
     
     func loadMusic() {
         guard let url = URL(string: "https://music.apple.com") else { return }
         webView.load(URLRequest(url: url))
     }
-    
-    func togglePlayPause() {
-        let script = """
-        (function(){
-            const play = document.querySelector('button[aria-label*="Play" i]');
-            const pause = document.querySelector('button[aria-label*="Pause" i]');
-            if (pause) { pause.click(); return; }
-            if (play) { play.click(); return; }
-        })();
-        """
-        webView.evaluateJavaScript(script) { _, _ in }
+
+    func setupRemoteCommandCenter() {
+        let commandCenter = MPRemoteCommandCenter.shared()
+        
+        // Remove existing targets to prevent duplicate triggers
+        commandCenter.playCommand.removeTarget(nil)
+        commandCenter.pauseCommand.removeTarget(nil)
+        commandCenter.nextTrackCommand.removeTarget(nil)
+        commandCenter.previousTrackCommand.removeTarget(nil)
+        
+        commandCenter.playCommand.isEnabled = true
+        commandCenter.playCommand.addTarget { [weak self] _ in
+            self?.webView.evaluateJavaScript("document.querySelector('button[aria-label*=\"Play\"]').click()")
+            return .success
+        }
+        
+        commandCenter.pauseCommand.isEnabled = true
+        commandCenter.pauseCommand.addTarget { [weak self] _ in
+            self?.webView.evaluateJavaScript("document.querySelector('button[aria-label*=\"Pause\"]').click()")
+            return .success
+        }
+        
+        commandCenter.nextTrackCommand.isEnabled = true
+        commandCenter.nextTrackCommand.addTarget { [weak self] _ in
+            self?.webView.evaluateJavaScript("document.querySelector('button[aria-label*=\"Next\"]').click()")
+            return .success
+        }
+        
+        commandCenter.previousTrackCommand.isEnabled = true
+        commandCenter.previousTrackCommand.addTarget { [weak self] _ in
+            self?.webView.evaluateJavaScript("document.querySelector('button[aria-label*=\"Previous\"]').click()")
+            return .success
+        }
     }
     
-    // MARK: - WKNavigationDelegate
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        DispatchQueue.main.async { self.isLoading = true }
+    private func setupTitleObserver() {
+        titleObservation = webView.observe(\.title, options: .new) { [weak self] _, change in
+            if let title = change.newValue as? String {
+                self?.updateNowPlaying(title: title)
+            }
+        }
     }
     
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        DispatchQueue.main.async { self.isLoading = false }
+    private func updateNowPlaying(title: String) {
+        let cleanTitle = title.replacingOccurrences(of: " — Apple Music", with: "")
+                             .replacingOccurrences(of: "Apple Music", with: "")
+        
+        var info = [String: Any]()
+        info[MPMediaItemPropertyTitle] = cleanTitle
+        info[MPNowPlayingInfoPropertyPlaybackRate] = 1.0
+        
+        // REQUIRED: Tell macOS the state is actually 'playing' to wake up Control Center
+        MPNowPlayingInfoCenter.default().playbackState = .playing
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = info
     }
 }
-
