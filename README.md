@@ -58,4 +58,34 @@ To get up and running, download a [release](https://github.com/DaNoob8157/Apple-
 1.  **Clone the repo**
     ```sh
     git clone [https://github.com/apmckelvey/Apple-Music-Cracked-Edition.git](https://github.com/apmckelvey/Apple-Music-Cracked-Edition.git)
+    ```
+2.  **Open in Xcode**
+    * Double-click `Apple Music Cracked Edition.xcodeproj`.
+3.  **Configure Signing**
+    * Go to the **Signing & Capabilities** tab.
+    * Select your **Personal Team** (your Apple ID).
+    * Ensure `"App Sandbox"` is enabled.
+4.  **Build and Run**
+    * Press `Cmd + R` to launch the app.
 
+## Usage
+
+Once the app is running:
+1.  **Log in** with your Apple ID (safe, as it uses the official Apple web login).
+2.  **Browse** your library just like on the website.
+3.  **Control** playback using the on-screen buttons or the `Spacebar` shortcut.
+
+## Disclaimer
+
+⚠️ **This project is *NOT* affiliated, associated, authorized, endorsed by, or in any way officially connected with `Apple Inc.`, or any of its subsidiaries or its affiliates.** ⚠️
+
+The official Apple Music website can be found at [music.apple.com](https://music.apple.com). The name "Apple Music" as well as related names, marks, emblems, and images are registered trademarks of their respective owners. This application is an unofficial web wrapper and is provided for educational and personal use only.
+
+## Credits
+
+* **Icon Design**: [FuzzyIdeas/MusicDecoy](https://github.com/FuzzyIdeas/MusicDecoy) - Thank you for the visual assets!
+* **Original Inspiration**: The desire for a lighter music player.
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
