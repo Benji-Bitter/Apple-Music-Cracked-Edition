@@ -50,7 +50,7 @@ This app works entirely online, giving you access to the full Apple Music librar
 
 ## Getting Started
 
-To get up and running, download a [release](https://github.com/DaNoob8157/Apple-Music-Cracked-Edition/releases/tag/Release) or follow these simple steps to get a local copy.
+To get up and running, download a [release](https://github.com/DaNoob8157/Apple-Music-Cracked-Edition/releases/) or follow these simple steps to get a local copy.
 
 ### Installation
 
