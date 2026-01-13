@@ -16,7 +16,7 @@
 		151041212F0DCE9A0091BBFC /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		151041232F0DD0580091BBFC /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		151041242F0DD0580091BBFC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		15DBA6482F15AC1500F45BD0 /* Apple Music Cracked Edition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Apple Music Cracked Edition.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		15DBA6482F15AC1500F45BD0 /* Apple Music Cracked Edition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Apple Music Cracked Edition.app"; path = "/Users/apmckelvey/Desktop/Coding Files/Apple-Music-Cracked-Edition/build/Debug/Apple Music Cracked Edition.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -45,7 +45,6 @@
 				151041212F0DCE9A0091BBFC /* icon.png */,
 				151041232F0DD0580091BBFC /* LICENSE */,
 				151041242F0DD0580091BBFC /* README.md */,
-				15DBA6482F15AC1500F45BD0 /* Apple Music Cracked Edition.app */,
 			);
 			sourceTree = "<group>";
 		};
