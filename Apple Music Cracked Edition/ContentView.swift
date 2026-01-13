@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  Apple Music Cracked Edition
 //
-//  Created by apmckelvey on 1/5/26.
+//  Created by Alexander McKelvey on 1/5/26.
 //
 
 import SwiftUI
@@ -28,24 +28,26 @@ struct ContentView: View {
     @StateObject private var viewModel = MusicViewModel()
     
     var body: some View {
-        VStack(spacing: 0) {
-            ZStack {
-                WebViewRepresentable(webView: viewModel.webView)
-                    .ignoresSafeArea(edges: .bottom)
+        ConnectivityGate(onRetry: {
+            viewModel.loadMusic()
+        }) {
+            VStack(spacing: 0) {
+                ZStack {
+                    WebViewRepresentable(webView: viewModel.webView)
+                        .ignoresSafeArea(edges: .bottom)
 
-                if viewModel.isLoading {
-                    ProgressView()
-                        .tint(.gray)
+                    if viewModel.isLoading {
+                        ProgressView()
+                            .tint(.gray)
+                    }
                 }
             }
-        }
-        .onAppear {
-            viewModel.loadMusic()
-            
-            // Assign the delegate after the window is created
-            DispatchQueue.main.async {
-                if let window = NSApplication.shared.windows.first {
-                    window.delegate = HideOnCloseDelegate.shared
+            .onAppear {
+                viewModel.loadMusic()
+                DispatchQueue.main.async {
+                    if let window = NSApplication.shared.windows.first {
+                        window.delegate = HideOnCloseDelegate.shared
+                    }
                 }
             }
         }

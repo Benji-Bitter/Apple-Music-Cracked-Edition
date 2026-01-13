@@ -2,7 +2,7 @@
 //  MusicViewModel.swift
 //  Apple Music Cracked Edition
 //
-//  Created by apmckelvey on 1/6/26.
+//  Created by Alesander McKelvey on 1/6/26.
 //
 
 import Foundation
@@ -90,6 +90,14 @@ class MusicViewModel: NSObject, ObservableObject, WKNavigationDelegate, WKUIDele
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        DispatchQueue.main.async { self.isLoading = false }
+    }
+    
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        DispatchQueue.main.async { self.isLoading = false }
+    }
+
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         DispatchQueue.main.async { self.isLoading = false }
     }
 }
