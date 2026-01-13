@@ -27,7 +27,6 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#disclaimer">Disclaimer</a></li>
-    <li><a href="#credits">Credits</a></li>
     <li><a href="#license">License</a></li>
   </ol>
 </details>
@@ -80,11 +79,6 @@ Once the app is running:
 ⚠️ **This project is *NOT* affiliated, associated, authorized, endorsed by, or in any way officially connected with `Apple Inc.`, or any of its subsidiaries or its affiliates.** ⚠️
 
 The official Apple Music website can be found at [music.apple.com](https://music.apple.com). The name "Apple Music" as well as related names, marks, emblems, and images are registered trademarks of their respective owners. This application is an unofficial web wrapper and is provided for educational and personal use only.
-
-## Credits
-
-* **Icon Design**: [FuzzyIdeas/MusicDecoy](https://github.com/FuzzyIdeas/MusicDecoy) - Thank you for the visual assets!
-* **Original Inspiration**: The desire for a lighter music player.
 
 ## License
 

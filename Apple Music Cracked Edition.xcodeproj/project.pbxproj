@@ -10,13 +10,17 @@
 		151041222F0DCE9A0091BBFC /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 151041212F0DCE9A0091BBFC /* icon.png */; };
 		151041252F0DD0580091BBFC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 151041242F0DD0580091BBFC /* README.md */; };
 		151041262F0DD0580091BBFC /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 151041232F0DD0580091BBFC /* LICENSE */; };
+		15B2069F2F16AACF0062A1ED /* MusicNote.png in Resources */ = {isa = PBXBuildFile; fileRef = 15B2069E2F16AACE0062A1ED /* MusicNote.png */; };
+		15B206A22F16AAE10062A1ED /* icon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 15B206A12F16AAE10062A1ED /* icon.icon */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		151041212F0DCE9A0091BBFC /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		151041232F0DD0580091BBFC /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		151041242F0DD0580091BBFC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		15DBA6482F15AC1500F45BD0 /* Apple Music Cracked Edition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Apple Music Cracked Edition.app"; path = "/Users/apmckelvey/Desktop/Coding Files/Apple-Music-Cracked-Edition/build/Debug/Apple Music Cracked Edition.app"; sourceTree = "<absolute>"; };
+		15B2069E2F16AACE0062A1ED /* MusicNote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MusicNote.png; sourceTree = "<group>"; };
+		15B206A12F16AAE10062A1ED /* icon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = icon.icon; sourceTree = "<group>"; };
+		15B206A32F16AB060062A1ED /* Apple Music Cracked Edition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Apple Music Cracked Edition.app"; path = "/Users/apmckelvey/Desktop/Coding Files/Apple-Music-Cracked-Edition/build/Debug/Apple Music Cracked Edition.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -45,6 +49,8 @@
 				151041212F0DCE9A0091BBFC /* icon.png */,
 				151041232F0DD0580091BBFC /* LICENSE */,
 				151041242F0DD0580091BBFC /* README.md */,
+				15B2069E2F16AACE0062A1ED /* MusicNote.png */,
+				15B206A12F16AAE10062A1ED /* icon.icon */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,7 +76,7 @@
 			packageProductDependencies = (
 			);
 			productName = "Apple Music Cracked Edition";
-			productReference = 15DBA6482F15AC1500F45BD0 /* Apple Music Cracked Edition.app */;
+			productReference = 15B206A32F16AB060062A1ED /* Apple Music Cracked Edition.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -114,7 +120,9 @@
 			files = (
 				151041252F0DD0580091BBFC /* README.md in Resources */,
 				151041262F0DD0580091BBFC /* LICENSE in Resources */,
+				15B2069F2F16AACF0062A1ED /* MusicNote.png in Resources */,
 				151041222F0DCE9A0091BBFC /* icon.png in Resources */,
+				15B206A22F16AAE10062A1ED /* icon.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,8 +260,9 @@
 		15914DAA2F0D747000587D1D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = icon.icon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Apple Music Cracked Edition/Apple Music Cracked Edition.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -281,7 +290,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alexander-mckelvey.Apple-Music-Cracked-Edition";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -297,8 +306,9 @@
 		15914DAB2F0D747000587D1D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = icon.icon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Apple Music Cracked Edition/Apple Music Cracked Edition.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -326,7 +336,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alexander-mckelvey.Apple-Music-Cracked-Edition";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
