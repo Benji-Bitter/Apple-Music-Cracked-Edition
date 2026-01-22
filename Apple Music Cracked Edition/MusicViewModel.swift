@@ -8,10 +8,17 @@
 import Foundation
 import WebKit
 import Combine
+import SwiftUI
 
 class MusicViewModel: NSObject, ObservableObject, WKNavigationDelegate, WKUIDelegate {
     let webView: WKWebView
     @Published var isLoading = false
+    @AppStorage("musicChannel") private var channelRaw: String = MusicChannel.production.rawValue
+    private var lastObservedChannelRaw: String = MusicChannel.production.rawValue
+    private var baseURL: URL {
+        let ch = MusicChannel(rawValue: channelRaw) ?? .production
+        return ch.baseURL
+    }
     
     override init() {
         let configuration = WKWebViewConfiguration()
@@ -19,7 +26,8 @@ class MusicViewModel: NSObject, ObservableObject, WKNavigationDelegate, WKUIDele
         // Standard preferences for a stable web experience
         configuration.preferences.isElementFullscreenEnabled = true
         configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
-        configuration.websiteDataStore = WKWebsiteDataStore.default()
+        configuration.websiteDataStore = WKWebsiteDataStore.default() // Use persistent store so login/2FA trust can stick
+        configuration.applicationNameForUserAgent = "AppleMusicCracked/1.0"
         
         // Prevent spacebar from toggling playback inside the Apple Music web app
         let blockSpacebarScriptSource = """
@@ -59,17 +67,24 @@ class MusicViewModel: NSObject, ObservableObject, WKNavigationDelegate, WKUIDele
         
         super.init()
         
-        // Modern User Agent to ensure Apple Music loads the high-quality interface
-        webView.customUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15"
-        
         webView.navigationDelegate = self
         webView.uiDelegate = self
         webView.allowsBackForwardNavigationGestures = true
+        
+        self.lastObservedChannelRaw = self.channelRaw
+        NotificationCenter.default.addObserver(self, selector: #selector(defaultsDidChange), name: UserDefaults.didChangeNotification, object: nil)
     }
     
     func loadMusic() {
-        guard let url = URL(string: "https://music.apple.com") else { return }
-        webView.load(URLRequest(url: url))
+        webView.load(URLRequest(url: baseURL))
+    }
+    
+    @objc private func defaultsDidChange() {
+        let current = channelRaw
+        if current != lastObservedChannelRaw {
+            lastObservedChannelRaw = current
+            loadMusic()
+        }
     }
     
     func togglePlayPause() {
@@ -99,6 +114,19 @@ class MusicViewModel: NSObject, ObservableObject, WKNavigationDelegate, WKUIDele
 
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         DispatchQueue.main.async { self.isLoading = false }
+    }
+    
+    // MARK: - WKUIDelegate popup handling
+    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+        // Open new window requests in the same web view to keep login flows consistent
+        if navigationAction.targetFrame == nil {
+            webView.load(navigationAction.request)
+        }
+        return nil
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UserDefaults.didChangeNotification, object: nil)
     }
 }
 

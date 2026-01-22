@@ -16,7 +16,7 @@
 		151041212F0DCE9A0091BBFC /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		151041232F0DD0580091BBFC /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		151041242F0DD0580091BBFC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		1570E2E02F1704BC00C3C0C3 /* Apple Music Cracked Edition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Apple Music Cracked Edition.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		15A7E1962F22D1D900F519AD /* Apple Music Cracked Edition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Apple Music Cracked Edition.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -45,7 +45,7 @@
 				151041212F0DCE9A0091BBFC /* icon.png */,
 				151041232F0DD0580091BBFC /* LICENSE */,
 				151041242F0DD0580091BBFC /* README.md */,
-				1570E2E02F1704BC00C3C0C3 /* Apple Music Cracked Edition.app */,
+				15A7E1962F22D1D900F519AD /* Apple Music Cracked Edition.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,7 +71,7 @@
 			packageProductDependencies = (
 			);
 			productName = "Apple Music Cracked Edition";
-			productReference = 1570E2E02F1704BC00C3C0C3 /* Apple Music Cracked Edition.app */;
+			productReference = 15A7E1962F22D1D900F519AD /* Apple Music Cracked Edition.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -283,7 +283,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 2.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alexander-mckelvey.Apple-Music-Cracked-Edition";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -329,7 +329,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 2.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alexander-mckelvey.Apple-Music-Cracked-Edition";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
