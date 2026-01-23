@@ -9,27 +9,16 @@
   </p>
 </p>
 
-<details open="open">
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-        <li><a href="#features">Features</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#disclaimer">Disclaimer</a></li>
-    <li><a href="#license">License</a></li>
-  </ol>
-</details>
+## Table of Conents  
+  1. [About The Project](#about-the-project)  
+    1.1. [Built With](#built-with)  
+    1.2.[Features](#features)  
+  2. [Getting Started](#getting-started)  
+    2.1 [Installation](#installation)  
+  3. [Usage](#usage)  
+  4. [Disclaimer](#disclaimer)  
+  5. [License](#license)  
+  
 
 ## About The Project
 
