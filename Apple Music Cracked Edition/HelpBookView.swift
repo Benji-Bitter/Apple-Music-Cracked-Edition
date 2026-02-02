@@ -93,6 +93,23 @@ extension HelpBookView {
         • Temporarily disable VPN/Private Relay
         • Keep your system date/time correct
         • Use the Developer > Cookies… tool to inspect or clear Apple-related cookies
+        """),
+        HelpTopic(title: "Media key access & privacy", content: """
+        When you first launch the app, macOS may ask to allow it to monitor keyboard input even when you’re not using the app. This request is specifically for handling the hardware media keys (Play/Pause, Next, Previous, Fast Forward, Rewind) so you can control playback while the app is in the background.
+        
+        What it’s used for:
+        • Listening for media key events and mapping them to the web player’s controls inside the app
+        
+        What it does NOT do:
+        • It does not capture or log your typing
+        • It does not read passwords or other text input
+        • It only listens for media key events
+        
+        Is this permission required?
+        • No. The app works without this permission. If you deny it, you can still control playback using the on‑screen controls in the app window.
+        • Granting permission simply enables convenient control using your keyboard’s media keys while the app is in the background.
+        
+        You can change this later in System Settings > Privacy & Security > Input Monitoring.
         """)
     ]
 }

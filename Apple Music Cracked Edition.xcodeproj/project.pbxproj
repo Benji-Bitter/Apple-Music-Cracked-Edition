@@ -10,6 +10,7 @@
 		151041222F0DCE9A0091BBFC /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 151041212F0DCE9A0091BBFC /* icon.png */; };
 		151041252F0DD0580091BBFC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 151041242F0DD0580091BBFC /* README.md */; };
 		151041262F0DD0580091BBFC /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 151041232F0DD0580091BBFC /* LICENSE */; };
+		15F0AB322F311616000E3CF3 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 15F0AB312F311616000E3CF3 /* Sparkle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15F0AB322F311616000E3CF3 /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +71,7 @@
 			);
 			name = "Apple Music Cracked Edition";
 			packageProductDependencies = (
+				15F0AB312F311616000E3CF3 /* Sparkle */,
 			);
 			productName = "Apple Music Cracked Edition";
 			productReference = 15A7E1962F22D1D900F519AD /* Apple Music Cracked Edition.app */;
@@ -98,6 +101,9 @@
 			);
 			mainGroup = 15914D952F0D746F00587D1D;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				15F0AB302F311616000E3CF3 /* XCRemoteSwiftPackageReference "Sparkle" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 15914D952F0D746F00587D1D;
 			projectDirPath = "";
@@ -364,6 +370,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		15F0AB302F311616000E3CF3 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		15F0AB312F311616000E3CF3 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15F0AB302F311616000E3CF3 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 15914D962F0D746F00587D1D /* Project object */;
 }
