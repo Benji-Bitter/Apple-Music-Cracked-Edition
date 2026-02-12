@@ -2,6 +2,16 @@
 
 This document explains how the Sparkle framework has been integrated into Apple Music Cracked Edition for automatic updates.
 
+## ⚠️ IMPORTANT: Setup Required
+
+**The auto-update feature will NOT work until you complete the setup steps below.** You must:
+1. Generate your own EdDSA key pair
+2. Replace the placeholder public key (`YOUR_PUBLIC_EDDSA_KEY_HERE`) in the project settings
+3. Create and host an appcast feed
+4. Sign your releases with your private key
+
+**Security Note:** Never commit your private key to the repository. The placeholder public key in this project is intentionally invalid and must be replaced with your own generated key.
+
 ## What is Sparkle?
 
 Sparkle is a popular open-source update framework for macOS applications. It allows your app to automatically check for updates and download/install them with user approval.
