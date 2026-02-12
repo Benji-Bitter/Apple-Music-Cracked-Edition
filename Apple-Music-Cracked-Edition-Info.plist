@@ -13,5 +13,11 @@
 			</array>
 		</dict>
 	</array>
+	<key>SUFeedURL</key>
+	<string>https://github.com/DaNoob8157/Apple-Music-Cracked-Edition/releases/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>YOUR_PUBLIC_EDDSA_KEY_HERE</string>
+	<key>SUEnableAutomaticChecks</key>
+	<true/>
 </dict>
 </plist>

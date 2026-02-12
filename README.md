@@ -31,11 +31,13 @@ This app works entirely online, giving you access to the full Apple Music librar
 * **Native Feel**: Wraps `music.apple.com` in a dedicated macOS window.
 * **Media Controls**: Use on-screen controls to play and pause music.
 * **Modern Support**: Uses a custom User Agent to ensure the full desktop interface loads correctly on Apple Silicon and Intel Macs.
+* **Auto-Updates**: Built-in support for automatic updates via Sparkle framework.
 
 ### Built With
 * [Swift](https://swift.org)
 * [WebKit](https://developer.apple.com/documentation/webkit)
 * [SwiftUI](https://developer.apple.com/swiftui/)
+* [Sparkle](https://sparkle-project.org) - Automatic update framework
 
 ## Getting Started
 
@@ -55,6 +57,13 @@ To get up and running, download a [release](https://github.com/DaNoob8157/Apple-
     * Ensure `"App Sandbox"` is enabled.
 4.  **Build and Run**
     * Press `Cmd + R` to launch the app.
+
+### Auto-Update Setup (Optional)
+
+The app includes Sparkle framework for automatic updates. To enable this feature:
+1. See [SPARKLE_INTEGRATION.md](SPARKLE_INTEGRATION.md) for detailed setup instructions
+2. Generate EdDSA keys and configure the appcast feed
+3. **Note**: Auto-updates require additional setup and are primarily for distribution maintainers
 
 ## Usage
 

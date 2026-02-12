@@ -10,6 +10,7 @@ import AppKit
 
 @main
 struct Apple_Music_Cracked_EditionApp: App {
+    private let updaterController = UpdaterController()
     @State private var mediaKeyTap = MediaKeyTap()
 
     var body: some Scene {
@@ -38,6 +39,7 @@ struct Apple_Music_Cracked_EditionApp: App {
                 }
         }
         .commands {
+            UpdaterCommands(updaterController: updaterController.updaterController)
             DeveloperCommands()
             AppHelpCommands()
         }
