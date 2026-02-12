@@ -25,13 +25,15 @@ The following components have been added/modified to integrate Sparkle:
 - Located in: `Apple Music Cracked Edition.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved`
 
 ### 2. UpdaterController.swift
-- A new class that wraps `SPUStandardUpdaterController`
+- A simple class that wraps `SPUStandardUpdaterController`
 - Initializes the Sparkle updater when the app launches
+- Does not need to conform to `ObservableObject` as Sparkle manages its own state internally
 - Located in: `Apple Music Cracked Edition/UpdaterController.swift`
 
 ### 3. UpdaterCommands.swift
 - Adds a "Check for Updates…" menu item to the app menu
 - Placed after the "About" menu item (standard macOS convention)
+- Uses a simple `let` property for the updater (no `@ObservedObject` needed)
 - Located in: `Apple Music Cracked Edition/UpdaterCommands.swift`
 
 ### 4. App Configuration
