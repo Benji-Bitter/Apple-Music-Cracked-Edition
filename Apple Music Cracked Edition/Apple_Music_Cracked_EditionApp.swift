@@ -10,7 +10,7 @@ import AppKit
 
 @main
 struct Apple_Music_Cracked_EditionApp: App {
-    @StateObject private var updaterController = UpdaterController()
+    private let updaterController = UpdaterController()
     @State private var mediaKeyTap = MediaKeyTap()
 
     var body: some Scene {

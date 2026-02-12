@@ -18,9 +18,9 @@ struct UpdaterCommands: Commands {
     }
 }
 
-// This view is needed to provide the "Check for Updates..." menu item
+// This view provides the "Check for Updates..." menu item
 struct CheckForUpdatesView: View {
-    @ObservedObject var updater: SPUUpdater
+    let updater: SPUUpdater
     
     var body: some View {
         Button("Check for Updates…") {

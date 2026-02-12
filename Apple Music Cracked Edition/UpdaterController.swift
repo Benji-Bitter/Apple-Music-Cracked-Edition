@@ -5,11 +5,11 @@
 //  Created for Sparkle framework integration
 //
 
-import SwiftUI
+import Foundation
 import Sparkle
 
-// This class is used to make the updater visible to SwiftUI and provide a reference to the SPUStandardUpdaterController.
-final class UpdaterController: ObservableObject {
+// This class holds a reference to the SPUStandardUpdaterController for the app lifecycle.
+final class UpdaterController {
     let updaterController: SPUStandardUpdaterController
     
     init() {
