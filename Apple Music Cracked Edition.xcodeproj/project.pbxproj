@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06B991512F4B77FC0073E9F9 /* SPARKLE_INTEGRATION.md in Resources */ = {isa = PBXBuildFile; fileRef = 06B991502F4B77FC0073E9F9 /* SPARKLE_INTEGRATION.md */; };
+		06B991532F4B78000073E9F9 /* Apple-Music-Cracked-Edition-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06B991522F4B78000073E9F9 /* Apple-Music-Cracked-Edition-Info.plist */; };
 		151041222F0DCE9A0091BBFC /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 151041212F0DCE9A0091BBFC /* icon.png */; };
 		151041252F0DD0580091BBFC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 151041242F0DD0580091BBFC /* README.md */; };
 		151041262F0DD0580091BBFC /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 151041232F0DD0580091BBFC /* LICENSE */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06B991502F4B77FC0073E9F9 /* SPARKLE_INTEGRATION.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SPARKLE_INTEGRATION.md; sourceTree = "<group>"; };
+		06B991522F4B78000073E9F9 /* Apple-Music-Cracked-Edition-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Apple-Music-Cracked-Edition-Info.plist"; sourceTree = "<group>"; };
 		151041212F0DCE9A0091BBFC /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		151041232F0DD0580091BBFC /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		151041242F0DD0580091BBFC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -21,6 +25,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		06B991602F4B79D40073E9F9 /* Sparkle-for-Swift-Package-Manager */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Sparkle-for-Swift-Package-Manager";
+			sourceTree = "<group>";
+		};
 		15914DA02F0D746F00587D1D /* Apple Music Cracked Edition */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Apple Music Cracked Edition";
@@ -48,6 +57,9 @@
 				151041232F0DD0580091BBFC /* LICENSE */,
 				151041242F0DD0580091BBFC /* README.md */,
 				15A7E1962F22D1D900F519AD /* Apple Music Cracked Edition.app */,
+				06B991502F4B77FC0073E9F9 /* SPARKLE_INTEGRATION.md */,
+				06B991522F4B78000073E9F9 /* Apple-Music-Cracked-Edition-Info.plist */,
+				06B991602F4B79D40073E9F9 /* Sparkle-for-Swift-Package-Manager */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +79,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				06B991602F4B79D40073E9F9 /* Sparkle-for-Swift-Package-Manager */,
 				15914DA02F0D746F00587D1D /* Apple Music Cracked Edition */,
 			);
 			name = "Apple Music Cracked Edition";
@@ -121,6 +134,8 @@
 			files = (
 				151041252F0DD0580091BBFC /* README.md in Resources */,
 				151041262F0DD0580091BBFC /* LICENSE in Resources */,
+				06B991532F4B78000073E9F9 /* Apple-Music-Cracked-Edition-Info.plist in Resources */,
+				06B991512F4B77FC0073E9F9 /* SPARKLE_INTEGRATION.md in Resources */,
 				151041222F0DCE9A0091BBFC /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,7 +301,7 @@
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_SUEnableAutomaticChecks = YES;
 				INFOPLIST_KEY_SUFeedURL = "https://github.com/DaNoob8157/Apple-Music-Cracked-Edition/releases/appcast.xml";
-				INFOPLIST_KEY_SUPublicEDKey = "YOUR_PUBLIC_EDDSA_KEY_HERE";
+				INFOPLIST_KEY_SUPublicEDKey = YOUR_PUBLIC_EDDSA_KEY_HERE;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -335,7 +350,7 @@
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_SUEnableAutomaticChecks = YES;
 				INFOPLIST_KEY_SUFeedURL = "https://github.com/DaNoob8157/Apple-Music-Cracked-Edition/releases/appcast.xml";
-				INFOPLIST_KEY_SUPublicEDKey = "YOUR_PUBLIC_EDDSA_KEY_HERE";
+				INFOPLIST_KEY_SUPublicEDKey = YOUR_PUBLIC_EDDSA_KEY_HERE;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
