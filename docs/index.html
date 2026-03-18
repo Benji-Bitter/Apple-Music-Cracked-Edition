@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apple Music: Cracked Edition</title>
+    <meta
+      name="description"
+      content="A lightweight macOS wrapper around music.apple.com with native controls, fast startup, and optional auto-updates."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-a"></div>
+    <div class="bg-orb orb-b"></div>
+
+    <header class="floating-controls" aria-label="Theme controls">
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+        <span class="toggle-icon" aria-hidden="true">◐</span>
+        <span class="toggle-text">Dark</span>
+      </button>
+    </header>
+
+    <main id="top" class="splash-main">
+      <section class="center-stage" aria-label="Apple Music Cracked Edition intro">
+        <p class="eyebrow">macOS web wrapper</p>
+        <h1>Apple Music: Cracked Edition</h1>
+        <p class="stage-copy">A lightweight wrapper for the official Apple Music web player with a faster, focused desktop experience.</p>
+
+        <div class="icon-stage" aria-hidden="true">
+          <img class="app-icon icon-light" src="./images/icon-light.png" alt="" />
+          <img class="app-icon icon-dark" src="./images/icon-dark.png" alt="" />
+        </div>
+
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="https://github.com/danoob8157/Apple-Music-Cracked-Edition/releases/">Download Release</a>
+          <a class="btn btn-ghost" href="https://github.com/danoob8157/Apple-Music-Cracked-Edition">View Source</a>
+        </div>
+      </section>
+
+      <section class="content-wrap" aria-label="Project details from README">
+        <article class="content-card" id="about">
+          <h2>About The Project</h2>
+          <p>
+            Apple Music: Cracked Edition is a lightweight wrapper for the official Apple Music web player.
+            It is designed as a streamlined alternative to the heavier built-in Music app on macOS.
+          </p>
+          <p>
+            The app works online and gives access to the full Apple Music library while connected,
+            without the resource overhead of the standard desktop client.
+          </p>
+        </article>
+
+        <article class="content-card" id="features">
+          <h2>Features</h2>
+          <ul>
+            <li><strong>Lightweight</strong>: Minimal resource usage compared to the native app.</li>
+            <li><strong>Native Feel</strong>: Wraps music.apple.com in a dedicated macOS window.</li>
+            <li><strong>Media Controls</strong>: Play and pause from on-screen controls.</li>
+            <li><strong>Modern Support</strong>: Full desktop interface support on Apple Silicon and Intel Macs.</li>
+          </ul>
+        </article>
+
+        <article class="content-card" id="built-with">
+          <h2>Built With</h2>
+          <ul>
+            <li><a href="https://swift.org">Swift</a></li>
+            <li><a href="https://developer.apple.com/documentation/webkit">WebKit</a></li>
+            <li><a href="https://developer.apple.com/swiftui/">SwiftUI</a></li>
+          </ul>
+        </article>
+
+        <article class="content-card" id="getting-started">
+          <h2>Getting Started</h2>
+          <p>
+            Download a release or build locally:
+            <a href="https://github.com/danoob8157/Apple-Music-Cracked-Edition/releases/">Releases</a>
+          </p>
+          <h3>Self-Installation</h3>
+          <ol>
+            <li>Clone the repository.</li>
+            <li>Open Apple Music Cracked Edition.xcodeproj in Xcode.</li>
+            <li>Configure your signing team in Signing and Capabilities.</li>
+            <li>Build and run with Cmd + R.</li>
+          </ol>
+          <h3>Auto-Update Setup (Optional)</h3>
+          <ol>
+            <li>Follow the Sparkle setup guide in SPARKLE_INTEGRATION.md.</li>
+            <li>Generate EdDSA keys and configure your appcast feed.</li>
+            <li>Use this flow mainly for distribution maintainers.</li>
+          </ol>
+        </article>
+
+        <article class="content-card" id="usage">
+          <h2>Usage</h2>
+          <ol>
+            <li>Log in with your Apple ID through the official web login flow.</li>
+            <li>Browse your library as on the website.</li>
+            <li>Control playback using in-app controls or the Spacebar shortcut.</li>
+          </ol>
+        </article>
+
+        <article class="content-card" id="license">
+          <h2>License</h2>
+          <p>Distributed under the MIT License. See the LICENSE file for details.</p>
+        </article>
+
+        <article class="content-card" id="disclaimer">
+          <h2>Disclaimer</h2>
+          <p>
+            This project is not affiliated with, associated with, authorized by, endorsed by,
+            or officially connected to Apple Inc.
+          </p>
+          <p>
+            Apple Music and related names, marks, emblems, and images are registered trademarks of their
+            respective owners.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

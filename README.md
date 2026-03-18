@@ -1,6 +1,6 @@
 <br />
 <p align="center">
-  <img src="icon.png" alt="Logo" width="150" height="150">
+  <img src="icon-light.png" alt="Logo" width="150" height="150">
 
   <h1 align="center">Apple Music: Cracked Edition</h1>
 
