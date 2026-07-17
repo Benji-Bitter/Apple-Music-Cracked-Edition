@@ -8,8 +8,25 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Select Xcode version
+        run: |
+          sudo xcode-select -s /Applications/Xcode.app
+
+      - name: Resolve Swift packages
+        run: |
+          xcodebuild \
+          -resolvePackageDependencies \
+          -project "Apple Music Cracked Edition.xcodeproj"
+
+      - name: Clean build folder
+        run: |
+          xcodebuild \
+          -project "Apple Music Cracked Edition.xcodeproj" \
+          -scheme "Apple Music Cracked Edition" \
+          clean
 
       - name: Build app
         run: |
@@ -17,14 +34,22 @@ jobs:
           -project "Apple Music Cracked Edition.xcodeproj" \
           -scheme "Apple Music Cracked Edition" \
           -configuration Release \
+          CODE_SIGNING_ALLOWED=NO \
+          CODE_SIGNING_REQUIRED=NO \
+          CODE_SIGN_IDENTITY="" \
           build
 
-      - name: Find app
+      - name: Find built app
         run: |
           find ~/Library/Developer/Xcode/DerivedData -name "*.app"
 
-      - name: Upload app
+      - name: Package app
+        run: |
+          mkdir -p build
+          cp -R "$(find ~/Library/Developer/Xcode/DerivedData -name 'Apple Music Cracked Edition.app' | head -n 1)" build/
+
+      - name: Upload app artifact
         uses: actions/upload-artifact@v4
         with:
           name: Apple-Music-Cracked-Edition-App
-          path: ~/Library/Developer/Xcode/DerivedData/**/*.app
+          path: build/
