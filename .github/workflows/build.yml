@@ -11,11 +11,49 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Create missing icon
+        run: |
+          if [ ! -f "icon.png" ]; then
+            echo "Creating placeholder icon.png"
+            python3 - <<EOF
+            import struct
+            import zlib
+
+            width = 512
+            height = 512
+
+            raw_data = b""
+            for y in range(height):
+                raw_data += b"\x00" + (b"\x20\x85\xff\xff" * width)
+
+            png = b'\x89PNG\r\n\x1a\n'
+
+            def chunk(chunk_type, data):
+                return (
+                    struct.pack(">I", len(data)) +
+                    chunk_type +
+                    data +
+                    struct.pack(">I", zlib.crc32(chunk_type + data) & 0xffffffff)
+                )
+
+            png += chunk(b'IHDR',
+                struct.pack(">IIBBBBB",
+                width, height, 8, 6, 0, 0, 0)
+            )
+
+            png += chunk(b'IDAT', zlib.compress(raw_data, 9))
+            png += chunk(b'IEND', b'')
+
+            with open("icon.png", "wb") as f:
+                f.write(png)
+            EOF
+          fi
+
       - name: Remove bundled Sparkle duplicate
         run: |
           rm -rf "Sparkle-for-Swift-Package-Manager"
 
-      - name: Resolve packages
+      - name: Resolve Swift packages
         run: |
           xcodebuild \
           -resolvePackageDependencies \
@@ -28,7 +66,7 @@ jobs:
           -scheme "Apple Music Cracked Edition" \
           clean
 
-      - name: Build
+      - name: Build app
         run: |
           xcodebuild \
           -project "Apple Music Cracked Edition.xcodeproj" \
@@ -39,16 +77,17 @@ jobs:
           CODE_SIGN_IDENTITY="" \
           build
 
-      - name: Find app
+      - name: Locate app
         run: |
           find ~/Library/Developer/Xcode/DerivedData -name "*.app"
 
-      - name: Package
+      - name: Package app
         run: |
-          mkdir build
-          cp -R "$(find ~/Library/Developer/Xcode/DerivedData -name 'Apple Music Cracked Edition.app' | head -n 1)" build/
+          mkdir -p build
+          APP_PATH=$(find ~/Library/Developer/Xcode/DerivedData -name "Apple Music Cracked Edition.app" | head -n 1)
+          cp -R "$APP_PATH" build/
 
-      - name: Upload
+      - name: Upload app
         uses: actions/upload-artifact@v4
         with:
           name: Apple-Music-Cracked-Edition-App
