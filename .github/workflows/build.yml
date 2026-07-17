@@ -11,18 +11,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Remove duplicate Sparkle resources
+      - name: Remove bundled Sparkle duplicate
         run: |
-          rm -f "Sparkle-for-Swift-Package-Manager/LICENSE"
-          rm -f "Sparkle-for-Swift-Package-Manager/bin/old_dsa_scripts/sign_update"
+          rm -rf "Sparkle-for-Swift-Package-Manager"
 
-      - name: Resolve Swift packages
+      - name: Resolve packages
         run: |
           xcodebuild \
           -resolvePackageDependencies \
           -project "Apple Music Cracked Edition.xcodeproj"
 
-      - name: Clean
+      - name: Clean build
         run: |
           xcodebuild \
           -project "Apple Music Cracked Edition.xcodeproj" \
@@ -40,16 +39,16 @@ jobs:
           CODE_SIGN_IDENTITY="" \
           build
 
-      - name: Find App
+      - name: Find app
         run: |
           find ~/Library/Developer/Xcode/DerivedData -name "*.app"
 
-      - name: Package App
+      - name: Package
         run: |
           mkdir build
           cp -R "$(find ~/Library/Developer/Xcode/DerivedData -name 'Apple Music Cracked Edition.app' | head -n 1)" build/
 
-      - name: Upload App
+      - name: Upload
         uses: actions/upload-artifact@v4
         with:
           name: Apple-Music-Cracked-Edition-App
