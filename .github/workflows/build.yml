@@ -1,0 +1,30 @@
+name: Build macOS App
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Build app
+        run: |
+          xcodebuild \
+          -project "Apple Music Cracked Edition.xcodeproj" \
+          -scheme "Apple Music Cracked Edition" \
+          -configuration Release \
+          build
+
+      - name: Find app
+        run: |
+          find ~/Library/Developer/Xcode/DerivedData -name "*.app"
+
+      - name: Upload app
+        uses: actions/upload-artifact@v4
+        with:
+          name: Apple-Music-Cracked-Edition-App
+          path: ~/Library/Developer/Xcode/DerivedData/**/*.app
